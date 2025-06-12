@@ -413,7 +413,7 @@
 
       .zoom-controls {
         position: absolute; /* Changed to absolute */
-        bottom: 20px; /* 20px from the bottom of map-wrapper */
+        bottom: 40px; /* Adjusted to be slightly higher */
         right: 20px; /* Changed from left to right */
         display: flex;
         flex-direction: column; /* Stacks buttons vertically */
@@ -505,7 +505,11 @@
   </head>
   <body>
     <div class="logo-container">
-      <img src="img/web_icons.png" alt="Logo Perusahaan" />
+      <img
+        src="https://placehold.co/50x50/cccccc/333333?text=LOGO"
+        alt="Logo Perusahaan"
+        onerror="this.onerror=null; this.src='https://placehold.co/50x50/cccccc/333333?text=LOGO';"
+      />
     </div>
 
     <div class="map-wrapper">
@@ -591,7 +595,7 @@
             ],
             phoneNumber: "085252451549",
             menuUrl: "",
-            eventUrl: "https://www.instagram.com/p/DKllfuPyXOK/", // Added event URL for point-ex
+            eventUrl: "https://example.com/event-pentas-seni", // Added event URL for point-ex
             iconUrl: "https://placehold.co/32x32/4CAF50/FFFFFF?text=STG",
             shape: "circle", // New property for circular point
           },
@@ -600,7 +604,8 @@
             x: 35,
             y: 30, // Updated for grid layout
             name: "JASUKE AYS",
-            description: "JASUKE AYS.",
+            description:
+              "Sebuah kafe nyaman yang terletak di antara pepohonan kuno, menyajikan minuman ajaib. Sempurna untuk sore yang tenang.",
             imageUrl:
               "https://lh3.googleusercontent.com/IFEurODw36inrzj_U6v0Da3mYPcQBJ3z2izQJ4VuTwDw89REKZ1ySk4H0U00_7Pc=w600", // Placeholder image
             socialMedia: [
@@ -723,7 +728,7 @@
             x: 35,
             y: 22, // Updated for grid layout
             name: "Pisang Gapit Suryani",
-            description: "Pisang Gapit Suryani.",
+            description: "Taman yang luas dPisang Gapit Suryani.",
             imageUrl:
               "https://lh3.googleusercontent.com/s5JElu7ho6YBoOFP0Vk1ejD08B0zqSDb9PCrT0IXoEbimegzwO1kxIe_6tr4yRU=w600",
             socialMedia: [
