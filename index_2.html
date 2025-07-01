@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis: Pemberdayaan Digital UMKM Simpang Odah Etam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!--
+    Narrative Plan:
+    1.  The Hook: Introduce the vibrant Simpang Odah Etam (SOE) and the core challenge visitors face (finding vendors).
+    2.  The Solution: Present the community service project as the answer.
+    3.  Data Deep Dive: Visualize the composition of UMKM at SOE using charts.
+    4.  The Process: Explain the 4-step project methodology with a flowchart.
+    5.  The Outcome: Showcase the interactive map prototype and its positive reception.
+    6.  Future Vision: Outline the next steps for continued digital empowerment.
+
+    Visualization Choices:
+    -   Data Point: Total active vendors. Goal: Inform. Visualization: Single Big Number. Justification: High impact for a key metric. Method: Styled HTML. NO SVG.
+    -   Data Point: Active vs. Inactive Vendors. Goal: Compare. Visualization: Donut Chart. Justification: Best for showing simple part-to-whole composition. Library: Chart.js. NO SVG.
+    -   Data Point: Vendor breakdown by type. Goal: Compare. Visualization: Bar Chart. Justification: Ideal for comparing values across multiple distinct categories. Library: Chart.js. NO SVG.
+    -   Data Point: Project Methodology. Goal: Organize. Visualization: Flow Chart. Justification: Clearly shows a sequential process. Method: Structured HTML/CSS with Tailwind. NO SVG/Mermaid.
+
+    Color Palette: Energetic & Playful (#FF6B6B, #FFD166, #06D6A0, #118AB2, #073B4C)
+    NO SVG or Mermaid JS were used.
+    -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .flowchart-arrow {
+            color: #FFD166;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-[#073B4C] mb-2">Mendigitalkan Jantung Kuliner Tenggarong</h1>
+            <p class="text-lg md:text-xl text-[#118AB2]"> Pemberdayaan UMKM di Simpang Odah Etam Melalui Website Interaktif</p>
+        </header>
+
+        <main class="space-y-16 md:space-y-24">
+
+            <section id="challenge" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-4">Tantangan di Tengah Keramaian</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Simpang Odah Etam (SOE) adalah pusat kegiatan ekonomi dan budaya yang ramai, layaknya Malioboro di Yogyakarta. Namun, kesuksesan ini membawa tantangan: pengunjung sering kesulitan menemukan lapak spesifik karena lokasi yang selalu berubah dan padatnya suasana. Promosi yang ada pun belum mampu menjadi pemandu yang efektif.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 grid grid-cols-2 gap-4 text-center">
+                     <div class="bg-[#FF6B6B] text-white p-6 rounded-2xl shadow-md">
+                        <div class="text-5xl font-black">147</div>
+                        <div class="text-lg font-semibold mt-1">Total Lapak</div>
+                    </div>
+                    <div class="bg-[#FFD166] text-[#073B4C] p-6 rounded-2xl shadow-md">
+                        <div class="text-5xl font-black">100+</div>
+                        <div class="text-lg font-semibold mt-1">Jenis Kuliner</div>
+                    </div>
+                    <div class="col-span-2 bg-[#06D6A0] text-white p-6 rounded-2xl shadow-md">
+                        <div class="text-5xl font-black">❓</div>
+                        <div class="text-lg font-semibold mt-1">Sulit Menemukan Penjual</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="data-overview" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-2">Membedah Ekosistem UMKM di SOE</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Untuk membangun solusi yang tepat, langkah pertama adalah memahami siapa saja para pelaku usaha di SOE. Data menunjukkan lanskap yang didominasi oleh usaha kuliner dengan tingkat partisipasi yang tinggi.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                    <div class="lg:col-span-2 text-center">
+                         <h3 class="text-xl font-bold text-[#118AB2] mb-4">Status Aktivitas Lapak</h3>
+                        <div class="chart-container max-w-sm mx-auto h-64 md:h-72">
+                            <canvas id="vendorStatusChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Sebagian besar UMKM yang terdaftar aktif berjualan, menunjukkan vitalitas ekonomi kawasan ini.</p>
+                    </div>
+                    <div class="lg:col-span-3">
+                         <h3 class="text-xl font-bold text-center text-[#118AB2] mb-4">Komposisi Jenis Usaha (Aktif)</h3>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="vendorTypeChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">Kategori Makanan menjadi tulang punggung utama UMKM di Simpang Odah Etam, menegaskan identitasnya sebagai destinasi kuliner.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="methodology">
+                 <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-2">Perjalanan Menuju Solusi Digital</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Proyek ini menggunakan pendekatan *Community Based Research* (CBR) yang melibatkan partisipasi aktif para pelaku UMKM dalam setiap tahapannya, dari Maret hingga Juni 2025.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
+                    <div class="flowchart-step bg-white p-6 rounded-lg shadow-md text-center w-60">
+                        <div class="text-3xl font-bold text-[#FF6B6B]">1</div>
+                        <h3 class="font-semibold text-lg mt-2">Observasi Awal</h3>
+                        <p class="text-sm text-gray-500">Memahami kondisi & kebutuhan UMKM</p>
+                    </div>
+                    <div class="text-4xl font-light flowchart-arrow transform rotate-90 md:rotate-0 mx-4">→</div>
+                    <div class="flowchart-step bg-white p-6 rounded-lg shadow-md text-center w-60">
+                        <div class="text-3xl font-bold text-[#FFD166]">2</div>
+                        <h3 class="font-semibold text-lg mt-2">Desain & Prototipe</h3>
+                        <p class="text-sm text-gray-500">Membangun prototipe web interaktif</p>
+                    </div>
+                     <div class="text-4xl font-light flowchart-arrow transform rotate-90 md:rotate-0 mx-4">→</div>
+                    <div class="flowchart-step bg-white p-6 rounded-lg shadow-md text-center w-60">
+                        <div class="text-3xl font-bold text-[#06D6A0]">3</div>
+                        <h3 class="font-semibold text-lg mt-2">Uji Coba & Umpan Balik</h3>
+                        <p class="text-sm text-gray-500">Mengumpulkan masukan dari UMKM</p>
+                    </div>
+                     <div class="text-4xl font-light flowchart-arrow transform rotate-90 md:rotate-0 mx-4">→</div>
+                     <div class="flowchart-step bg-white p-6 rounded-lg shadow-md text-center w-60">
+                        <div class="text-3xl font-bold text-[#118AB2]">4</div>
+                        <h3 class="font-semibold text-lg mt-2">Evaluasi & Tindak Lanjut</h3>
+                        <p class="text-sm text-gray-500">Analisis hasil & rencana ke depan</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="results" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-2xl shadow-lg">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-4">Hasilnya: Peta Interaktif SOE</h2>
+                    <p class="text-gray-600 mb-6">Prototipe website berhasil dikembangkan, berfungsi sebagai peta digital yang menampilkan lokasi dan detail setiap pedagang. Platform ini mendapat respon sangat positif, dengan sebagian besar UMKM bersedia menggunakannya secara berkelanjutan.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <span class="text-gray-700">Meningkatkan visibilitas UMKM</span>
+                        </div>
+                        <div class="flex items-center">
+                             <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <span class="text-gray-700">Memudahkan navigasi pengunjung</span>
+                        </div>
+                        <div class="flex items-center">
+                             <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <span class="text-gray-700">Meningkatkan kepercayaan diri digital UMKM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="https://i.ibb.co/jv1kLWgz/Screenshot-1.png" alt="Prototipe website peta interaktif Simpang Odah Etam" class="rounded-lg shadow-md w-full"  onerror="this.onerror=null;this.src='https://placehold.co/600x400/118AB2/FFFFFF?text=Contoh+Peta+Interaktif';">
+                </div>
+            </section>
+
+            <section id="future">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-2">Visi Masa Depan yang Digital</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Keberhasilan proyek ini adalah awal. Untuk keberlanjutan, beberapa pengembangan di masa depan sangat direkomendasikan untuk memperkuat ekosistem digital di SOE.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#FF6B6B]">
+                        <h3 class="text-2xl font-bold text-[#073B4C] mb-3">Fitur Transaksi Online</h3>
+                        <p class="text-gray-600">Mengintegrasikan sistem pembayaran digital langsung di website untuk memudahkan transaksi dan membuka potensi pasar yang lebih luas.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#06D6A0]">
+                        <h3 class="text-2xl font-bold text-[#073B4C] mb-3">Pelatihan Pemasaran Digital Lanjutan</h3>
+                        <p class="text-gray-600">Memberikan pelatihan berkelanjutan mengenai strategi media sosial, fotografi produk, dan *copywriting* untuk meningkatkan daya saing UMKM.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 md:mt-24 pt-8 border-t border-gray-200">
+            <p class="text-gray-500">Infografis berdasarkan Jurnal Pengabdian Pada Masyarakat IPTEKS (JPPMI), Vol.2, No.2, 2025.</p>
+            <p class="text-sm text-gray-400 mt-1">Proyek oleh STMIK Widya Cipta Dharma</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const energeticPlayfulPalette = {
+                red: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                darkBlue: '#073B4C'
+            };
+
+            const wrapLabel = (label, maxLength = 16) => {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine);
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                family: "'Inter', sans-serif"
+                            },
+                            color: energeticPlayfulPalette.darkBlue
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        titleFont: { family: "'Inter', sans-serif" },
+                        bodyFont: { family: "'Inter', sans-serif" },
+                    }
+                }
+            };
+
+            const vendorStatusCtx = document.getElementById('vendorStatusChart')?.getContext('2d');
+            if (vendorStatusCtx) {
+                new Chart(vendorStatusCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Aktif Berjualan', 'Tidak Aktif'],
+                        datasets: [{
+                            label: 'Status Lapak',
+                            data: [116, 31],
+                            backgroundColor: [
+                                energeticPlayfulPalette.green,
+                                energeticPlayfulPalette.red
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 4,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: { ...defaultChartOptions }
+                });
+            }
+
+            const vendorTypeCtx = document.getElementById('vendorTypeChart')?.getContext('2d');
+            if (vendorTypeCtx) {
+                const rawLabels = ['Makanan', 'Minuman', 'Merchant', 'Fashion', 'Makanan dan Minuman'];
+                const processedLabels = rawLabels.map(label => wrapLabel(label));
+
+                new Chart(vendorTypeCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: processedLabels,
+                        datasets: [{
+                            label: 'Jumlah Lapak Aktif',
+                            data: [82, 23, 8, 2, 1], 
+                            backgroundColor: [
+                                energeticPlayfulPalette.blue,
+                                energeticPlayfulPalette.green,
+                                energeticPlayfulPalette.yellow,
+                                energeticPlayfulPalette.red,
+                                energeticPlayfulPalette.darkBlue
+                            ],
+                            borderRadius: 6,
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        ...defaultChartOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false,
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    font: { family: "'Inter', sans-serif" }
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false,
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    font: { family: "'Inter', sans-serif" },
+                                    color: energeticPlayfulPalette.darkBlue
+                                }
+                            }
+                        },
+                        plugins: {
+                           ...defaultChartOptions.plugins,
+                           legend: {
+                               display: false
+                           }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
